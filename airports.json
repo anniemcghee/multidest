@@ -1,69 +1,79 @@
 [
 {
-"type": "airport",
+"name": "Sea Tac International Aiport",
+"city": "Seattle",
 "airportCode": "SEA",
 "coordinates": [
 47.4502446,
 -122.3438358
 ]
 },
-"type": "airport",
+"name": "Portland International Aiport",
+"city": "Portland",
 "airportCode": "PDX",
 "coordinates": [
 45.5897694,
 -122.5972829
 ]
 },
-"type": "airport",
+"name": "San Fransisco International Aiport",
+"city": "San Fransisco",
 "airportCode": "SFO",
 "coordinates": [
 37.6213129,
 -122.3811441
 ]
 },
-"type": "airport",
+"name": "Los Angeles International Aiport",
+"city": "Los Angeles",
 "airportCode": "LAX",
 "coordinates": [
 33.9415889,
 -118.4107187
 ]
 },
-"type": "airport",
+"name": "San Jose Aiport",
+"city": "San Jose",
 "airportCode": "SJC",
 "coordinates": [
 37.3639472,
 -121.9311262
 ]
 },
-"type": "airport",
+"name": "San Diego International Aiport",
+"city": "San Diego",
 "airportCode": "SAN",
 "coordinates": [
 32.7338006,
 -117.1954925
 ]
 },
-"type": "airport",
+"name": "JFK International Aiport",
+"city": "New York City",
 "airportCode": "JFK",
 "coordinates": [
 40.6413111,
 -73.7803278
 ]
 },
-"type": "airport",
+"name": "La Guardia International Aiport",
+"city": "New York City",
 "airportCode": "LGA",
 "coordinates": [
 40.7769271,
 -73.8761546
 ]
 },
-"type": "airport",
+"name": "Logan International Aiport",
+"city": "Boston",
 "airportCode": "BOS",
 "coordinates": [
 42.3656132,
 -71.0117489
 ]
 },
-"type": "airport",
+"name": "Miami International Aiport",
+"city": "Miami",
 "airportCode": "MIA",
 "coordinates": [
 25.795865,
