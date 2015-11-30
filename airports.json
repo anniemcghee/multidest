@@ -10,47 +10,64 @@
 "type": "airport",
 "airportCode": "PDX",
 "coordinates": [
-47.4502446,
--122.3438358
+45.5897694,
+-122.5972829
 ]
 },
 "type": "airport",
 "airportCode": "SFO",
 "coordinates": [
-47.4502446,
--122.3438358
+37.6213129,
+-122.3811441
 ]
 },
 "type": "airport",
 "airportCode": "LAX",
 "coordinates": [
-47.4502446,
--122.3438358
+33.9415889,
+-118.4107187
+]
+},
+"type": "airport",
+"airportCode": "SJC",
+"coordinates": [
+37.3639472,
+-121.9311262
+]
+},
+"type": "airport",
+"airportCode": "SAN",
+"coordinates": [
+32.7338006,
+-117.1954925
 ]
 },
 "type": "airport",
 "airportCode": "JFK",
 "coordinates": [
-47.4502446,
--122.3438358
+40.6413111,
+-73.7803278
 ]
-},"type": "airport",
+},
+"type": "airport",
 "airportCode": "LGA",
 "coordinates": [
-47.4502446,
--122.3438358
+40.7769271,
+-73.8761546
 ]
-},"type": "airport",
+},
+"type": "airport",
 "airportCode": "BOS",
 "coordinates": [
-47.4502446,
--122.3438358
+42.3656132,
+-71.0117489
 ]
-},"type": "airport",
+},
+"type": "airport",
 "airportCode": "MIA",
 "coordinates": [
-47.4502446,
--122.3438358
+25.795865,
+-80.2892344
 ]
 }
 ]
