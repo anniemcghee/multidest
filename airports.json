@@ -1,0 +1,56 @@
+[
+{
+"type": "airport",
+"airportCode": "SEA",
+"coordinates": [
+47.4502446,
+-122.3438358
+]
+},
+"type": "airport",
+"airportCode": "PDX",
+"coordinates": [
+47.4502446,
+-122.3438358
+]
+},
+"type": "airport",
+"airportCode": "SFO",
+"coordinates": [
+47.4502446,
+-122.3438358
+]
+},
+"type": "airport",
+"airportCode": "LAX",
+"coordinates": [
+47.4502446,
+-122.3438358
+]
+},
+"type": "airport",
+"airportCode": "JFK",
+"coordinates": [
+47.4502446,
+-122.3438358
+]
+},"type": "airport",
+"airportCode": "LGA",
+"coordinates": [
+47.4502446,
+-122.3438358
+]
+},"type": "airport",
+"airportCode": "BOS",
+"coordinates": [
+47.4502446,
+-122.3438358
+]
+},"type": "airport",
+"airportCode": "MIA",
+"coordinates": [
+47.4502446,
+-122.3438358
+]
+}
+]
