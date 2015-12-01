@@ -45,6 +45,36 @@ var airports = [{
 "lat": 32.7338,
 "long": -117.1954
 }, {
+"name": "Denver International Aiport",
+"city": "Denver",
+"airportCode": "DEN",
+"lat": 39.8560,
+"long": -104.6759
+}, {
+"name": "O'Hare International Aiport",
+"city": "Chicago",
+"airportCode": "CHI",
+"lat": 41.9741,
+"long": -87.9095
+}, {
+"name": "Salt Lake City International Aiport",
+"city": "Salt Lake City",
+"airportCode": "SLC",
+"lat": 40.7899,
+"long": -111.9812
+}, {
+"name": "Atlanta International Aiport",
+"city": "Atlanta",
+"airportCode": "ATL",
+"lat": 33.6407,
+"long": -84.4298
+}, {
+"name": "Dallas Fort Worth International Aiport",
+"city": "Dallas",
+"airportCode": "DFW",
+"lat": 32.8998,
+"long": -97.0425
+}, {
 "name": "JFK International Aiport",
 "city": "New York City",
 "airportCode": "JFK",
@@ -84,7 +114,7 @@ var airports = [{
 
 var loadmarkers = function (airport) {
   for (var i = 0; i < airport.length; i++) {
-    L.marker([airport[i].lat, airport[i].long]).addTo(map);
+    L.marker([airport[i].lat, airport[i].long]).bindPopup('<h2>' + 'Visit '+ airport[i].city + '</h2>' + '<h3>' + airport[i].name + '</h3>').addTo(map);
   }
 };
 
