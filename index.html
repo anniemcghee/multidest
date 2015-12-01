@@ -21,10 +21,20 @@
 
 <div>
 	<div id="itinerary" ng-controller="Itinerary">
-		<button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Trip</button>
-			<hr>
-		<div uib-collapse="isCollapsed">
-			<div class="well well-lg">Some content</div>
+		<button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Itinerary</button>
+		<div uib-collapse="!isCollapsed">
+			<div class="well well-lg">
+				<div class="row">
+					<div class="stops col-sm-8">
+						<h5>Departing Airport: {{ airports[0] }}</h5>
+					</div>
+					<div class="total col-sm-4">
+						<h5>{{ total }}</h5>
+					</div>
+				</div>
+
+				<button ng-hide="!threeChoices" class="well well-lg">Search Flights</button>
+			</div>
 		</div>
 	</div>
 
