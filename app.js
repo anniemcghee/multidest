@@ -1,6 +1,6 @@
-var MultidestApp = angular.module('MultidestApp', ['ui.bootstrap']);
+var multidestApp = angular.module('MultidestApp', ['ui.bootstrap']);
 
-MultidestApp.run(function(){
+multidestApp.run(function(){
     console.log('The app has started.');
 });
 
