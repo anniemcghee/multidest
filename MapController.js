@@ -2,6 +2,7 @@ multidestApp.controller('Map', function ($scope) {
   console.log("Map controller loaded");
 });
 
+
 L.mapbox.accessToken = 'pk.eyJ1IjoiYW5uaWVtY2JsZWUiLCJhIjoiV1VYZ09NRSJ9.STqM6FSiQ4WKq_I-hJS1QQ';
 
 var map = L.mapbox.map('map')
