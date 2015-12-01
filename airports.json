@@ -16,8 +16,8 @@
 -122.5972829
 ]
 },
-"name": "San Fransisco International Aiport",
-"city": "San Fransisco",
+"name": "San Francisco International Aiport",
+"city": "San Francisco",
 "airportCode": "SFO",
 "coordinates": [
 37.6213129,
@@ -70,6 +70,22 @@
 "coordinates": [
 42.3656132,
 -71.0117489
+]
+},
+"name": "Dulles International Aiport",
+"city": "Washington, D.C.",
+"airportCode": "IAD",
+"coordinates": [
+38.9531162,
+-77.4587328
+]
+},
+"name": "Ronald Reagan Washington National Aiport",
+"city": "Washington, D.C.",
+"airportCode": "DCA",
+"coordinates": [
+38.851242,
+-77.0424255
 ]
 },
 "name": "Miami International Aiport",
