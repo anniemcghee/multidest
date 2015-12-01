@@ -114,7 +114,7 @@ var airports = [{
 
 var loadmarkers = function (airport) {
   for (var i = 0; i < airport.length; i++) {
-    L.marker([airport[i].lat, airport[i].long]).addTo(map);
+    L.marker([airport[i].lat, airport[i].long]).bindPopup('<a class="link" href="/' + airport[i].name + '">' + '<h3>' + airport[i].city + '</h3>' + '</a>' + '<h4>' + airport[i].airportCode + '</h4>').addTo(map);
   }
 };
 
