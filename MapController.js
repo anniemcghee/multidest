@@ -1,12 +1,5 @@
 multidestApp.controller('Map', function ($scope) {
   console.log("Map controller loaded");
-
-//API for pricing
-//http://terminal2.expedia.com/x/flights/v3/search/1/SEA/PDX/2015-12-30?apikey=MRBvyDdb9ZiIFaDnTRFQw1x6RnReYR0l
-
-//Selection populates airports array, itinerary scope updates
-//itinerary fires trend search between every other call to populate total - otherwise "--"
-
 });
 
 L.mapbox.accessToken = 'pk.eyJ1IjoiYW5uaWVtY2JsZWUiLCJhIjoiV1VYZ09NRSJ9.STqM6FSiQ4WKq_I-hJS1QQ';
@@ -88,11 +81,6 @@ var airports = [{
 "lat": 25.7958,
 "long":-80.2892
 }];
-
-console.log([airports[0].lat],[airports[0].long]);
-console.log(parseFloat(airports[0].long));
-
-L.marker([50.5, -122.5]).addTo(map);
 
 var loadmarkers = function (airport) {
   for (var i = 0; i < airport.length; i++) {
