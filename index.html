@@ -11,17 +11,25 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
 	<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
 	<script src="app.js"></script>
-	<script src="MapController.js"></script>
 	<script src="ItineraryController.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body ng-app="MultidestApp">
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<nav class="navbar navbar-inverse navbar-default">
   		<a class="navbar-brand" href="#"><i class="fa fa-plane"></i> MultiDest Explore</a>
 	</nav>
 
-	<div id='map'></div>
-	<script src="MapController.js"></script>
+<div>
+	<div id="itinerary" ng-controller="Itinerary">
+		<button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Trip</button>
+			<hr>
+		<div uib-collapse="isCollapsed">
+			<div class="well well-lg">Some content</div>
+		</div>
+	</div>
 
+	<div id='map' ng-controller="Map"></div>
+	<script src="MapController.js"></script>
+</div>
 </body>
 </html>
