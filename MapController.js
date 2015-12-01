@@ -1,5 +1,12 @@
 multidestApp.controller('Map', function ($scope) {
   console.log("Map controller loaded");
+
+//API for pricing
+//http://terminal2.expedia.com/x/flights/v3/search/1/SEA/PDX/2015-12-30?apikey=MRBvyDdb9ZiIFaDnTRFQw1x6RnReYR0l
+
+//Selection populates airports array, itinerary scope updates
+//itinerary fires trend search between every other call to populate total - otherwise "--"
+
 });
 
 
