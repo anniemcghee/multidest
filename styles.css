@@ -9,3 +9,12 @@ body {
   bottom:0;
   width:100%;
 }
+
+#itinerary {
+    display: block;
+    float: right;
+    z-index: 3;
+    position: absolute; /*newly added*/
+    right: 5px; /*newly added*/
+    top: 5px;/*newly added*/
+}
