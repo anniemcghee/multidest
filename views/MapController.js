@@ -8,8 +8,13 @@ var map = L.mapbox.map('map')
 
 function onEachFeature(feature, layer) {
   // does this feature have a property named popupContent?
-  if(feature.properties && feature.properties.popupContent) {
-  layer.bindPopup(feature.properties.popupContent);
+  // If so, then bind the popup to the layer
+  //if(feature.properties && feature.properties.popupContent) {
+  //layer.bindPopup(feature.properties.popupContent);
+  // does this feature have a property named popupContent?
+  // If so, then bind the popup to the layer
+  if(feature.properties && feature.geometry) {
+    console.log('adding point to map.');
   }
 };
 
