@@ -4,9 +4,9 @@ body {
 }
 
 #map {
-  position:absolute;
-  top:0;
-  bottom:0;
+  position: absolute;
+  top: 4em;
+  bottom: 0;
   width:100%;
 }
 
@@ -14,7 +14,7 @@ body {
     display: block;
     float: right;
     z-index: 3;
-    position: absolute; /*newly added*/
+    position: relative; /*newly added*/
     right: 5px; /*newly added*/
     top: 5px;/*newly added*/
 }
