@@ -16,20 +16,24 @@
 	<script src="app.js"></script>
 	<script src="ItineraryController.js"></script>
 	<script src="airports.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+	</head>
+
 <body ng-app="MultidestApp">
+ <div id="<date-modal>"></div>
+
 	<nav class="navbar navbar-inverse navbar-default">
   		<a class="navbar-brand" href="#"><i class="fa fa-plane"></i> MultiDest Explore</a>
 	</nav>
 
+
 <div ng-controller="Itinerary">
+
 	<div id="itinerary">
 		<button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Itinerary</button>
 		<div uib-collapse="!isCollapsed">
 			<div class="well well-lg">
 				<div ng-repeat="stop in itinerary" class="row">
-					<div class="stops col-sm-6">
+					<div class="col-sm-6">
 						<h5>{{ stop }}</h5>
 					</div>
 					<div ng-repeat="legTotal in legTotals" class="leg-total col-sm-6">

@@ -1,7 +1,7 @@
 var airports = [{
 "name": "Sea Tac International Aiport",
 "city": "Seattle",
-"airportCode": "FUCK",
+"airportCode": "SEA",
 "lat": 47.4502,
 "long": -122.3438
 }, {

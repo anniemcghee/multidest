@@ -1,5 +1,37 @@
-multidestApp.controller('Itinerary', function ($scope, $http, $compile, SelectedAirport) {
+multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal', function ($scope, $http, $compile, $uibModal) {
   console.log("itinerary controller loading");
+
+//   //first load datepicker modal and collect userDate
+//   $scope.today = function() {
+//     $scope.dt = new Date();
+//   };
+//
+//   $scope.today();
+//
+//   $scope.clear = function () {
+//     $scope.dt = null;
+//   };
+//
+//   $scope.toggleMin = function() {
+//     $scope.minDate = $scope.minDate ? null : new Date();
+//   };
+//   $scope.toggleMin();
+//
+//   $scope.open = function($event) {
+//     $event.preventDefault();
+//     $event.stopPropagation();
+// 
+//     $scope.opened = true;
+//   };
+//
+//   $scope.dateOptions = {
+//     formatYear: 'yy',
+//     startingDay: 1
+//   };
+//
+//   $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+//   $scope.format = $scope.formats[0];
+// //END OF DATE PICKER
 
   //first load map and bind markers to scope for selection
   L.mapbox.accessToken = 'pk.eyJ1IjoiYW5uaWVtY2JsZWUiLCJhIjoiV1VYZ09NRSJ9.STqM6FSiQ4WKq_I-hJS1QQ';
@@ -62,4 +94,4 @@ multidestApp.controller('Itinerary', function ($scope, $http, $compile, Selected
     }
   };
 
-});
+}]);
