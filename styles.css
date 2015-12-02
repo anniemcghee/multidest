@@ -22,7 +22,13 @@ body {
 #marker.fa {
   float: right;
   z-index: 2;
-  position: inline-block;
-  padding: 5px;
+  position: relative;
+  padding: 3px;
   color: blue;
+}
+
+h6 {
+  float: left;
+  z-index:2px;
+  position: relative;
 }
