@@ -12,6 +12,7 @@
 	<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
 	<script src="app.js"></script>
 	<script src="ItineraryController.js"></script>
+	<script src="airports.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body ng-app="MultidestApp">
@@ -19,16 +20,16 @@
   		<a class="navbar-brand" href="#"><i class="fa fa-plane"></i> MultiDest Explore</a>
 	</nav>
 
-<div>
-	<div id="itinerary" ng-controller="Itinerary">
+<div ng-controller="Itinerary">
+	<div id="itinerary">
 		<button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Itinerary</button>
 		<div uib-collapse="!isCollapsed">
 			<div class="well well-lg">
-				<div class="row">
+				<div ng-repeat="stop in itinerary" class="row">
 					<div class="stops col-sm-6">
-						<h5>Departing Airport: {{ airports[0] }}</h5>
+						<h5>{{ stop }}</h5>
 					</div>
-					<div class="leg-total col-sm-6">
+					<div ng-repeat="legTotal in legTotals" class="leg-total col-sm-6">
 						<h5>{{ legTotal }}</h5>
 					</div>
 				</div>
@@ -44,7 +45,7 @@
 		</div>
 	</div>
 
-	<div id='map' ng-controller="Map"></div>
+	<div id='map' ng-controller='Map'></div>
 	<script src="MapController.js"></script>
 </div>
 </body>
