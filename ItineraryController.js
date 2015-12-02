@@ -44,22 +44,20 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
 
   var loadMarkers = function (airport) {
     for (var i = 0; i < airport.length; i++) {
-
       var html = '<button class="btn btn-warning" id="' + airport[i].airportCode + '" ng-click="selectedAirport(' + airport[i].airportCode + ')">Add to Trip</button>'
-
       var marker = L.marker([airport[i].lat, airport[i].long], {title: airport[i].airportCode}).addTo(map).bindPopup(html);
-
 
       marker.on('click', function(e) {
         $scope.selectedAirport = e.target.options.title;
         $scope.latlng = e.latlng;
-        latlngList.push($scope.latlng)
-        console.log(latlngList)
-        itinerary.push($scope.selectedAirport);
-        console.log(itinerary);
-        calculateLegTotal(itinerary[0 + counter], itinerary[1 + counter])
-        //need a promise set up for calculateLegTotal
-        drawRoute(latlngList[0 + counter],latlngList[1 + counter]);
+        if(itinerary[0 + counter] === $scope.selectedAirport){
+        alert("pick another airport!");
+        } else {
+          itinerary.push($scope.selectedAirport);
+          latlngList.push($scope.latlng)
+          calculateLegTotal(itinerary[0 + counter], itinerary[1 + counter])
+          drawRoute(latlngList[0 + counter],latlngList[1 + counter]);
+        }
       });
     }
   };
@@ -69,19 +67,14 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
   //then itinerary logic and route creation
   var legTotal;
   var counter = 0;
-
   $scope.isCollapsed = false;
-
   $scope.userDate = '2016-01-16';
-
   var itinerary = [];
-
   $scope.legTotals = [];
 
   // $scope.legTotal = legTotal;
 
   var calculateLegTotal = function(dep, arr) {
-    console.log("CALLING CALC FUNCTION");
     if (arr === undefined) {
       $scope.legTotal = '---';
       $scope.legTotals.push($scope.legTotal);
@@ -89,10 +82,8 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
     } else {
       var req = {
           url: 'http://terminal2.expedia.com/x/mflights/search?departureAirport=' + dep + '&arrivalAirport=' + arr + '&departureDate='+ $scope.userDate + '&apikey=aW7SABU9XHqRcWiG6xE0v60xllK0Tqg7'
-        }
-
+      }
       $http(req).success(function(data) {
-        console.log("HTTP SUCCESS ARRIVALLLLLL");
         $scope.legTotal = data.offers[0].totalFare;
         $scope.legTotals.push($scope.legTotal);
         console.log($scope.legTotals);
@@ -106,9 +97,13 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
       return;
     }
     else {
-      var polyline = L.polyline([depLatLng, arrLatLng], {color: 'yellow'}).addTo(map);
+      var polyline = L.polyline([depLatLng, arrLatLng], {color: 'blue'}).addTo(map);
     }
   };
-
-
+  // Tried adding a multidest search since we don't have this API in the list. I was having difficulty so I hard coded one in at index.html
+  // var searchFlights = function() {
+  //   var windowObjectReference;
+  //   var strWindowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";
+  //     windowObjectReference = window.open("https://www.expedia.com/", "CNN_WindowName", strWindowFeatures);
+  // };
 }]);
