@@ -50,13 +50,16 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
       marker.on('click', function(e) {
         $scope.selectedAirport = e.target.options.title;
         $scope.latlng = e.latlng;
-        if(itinerary[0 + counter] === $scope.selectedAirport){
+        if(itinerary[0 + legCounter] === $scope.selectedAirport){
         alert("pick another airport!");
         } else {
           itinerary.push($scope.selectedAirport);
           latlngList.push($scope.latlng)
-          calculateLegTotal(itinerary[0 + counter], itinerary[1 + counter])
-          drawRoute(latlngList[0 + counter],latlngList[1 + counter]);
+          console.log(latlngList);
+          calculateLegTotal(itinerary[0 + legCounter], itinerary[1 + legCounter]);
+          console.log(legCounter);
+          drawRoute(latlngList[0 + drawCounter],latlngList[1 + drawCounter]);
+          console.log(drawCounter);
         }
       });
     }
@@ -66,7 +69,8 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
 
   //then itinerary logic and route creation
   var legTotal;
-  var counter = 0;
+  var legCounter = 0;
+  var drawCounter = 0;
   $scope.isCollapsed = false;
   $scope.userDate = '2016-01-16';
   var itinerary = [];
@@ -87,7 +91,7 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
         $scope.legTotal = data.offers[0].totalFare;
         $scope.legTotals.push($scope.legTotal);
         console.log($scope.legTotals);
-        counter++;
+        legCounter++;
       });
     }
   };
@@ -98,6 +102,7 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
     }
     else {
       var polyline = L.polyline([depLatLng, arrLatLng], {color: 'blue'}).addTo(map);
+      drawCounter++;
     }
   };
   // Tried adding a multidest search since we don't have this API in the list. I was having difficulty so I hard coded one in at index.html
