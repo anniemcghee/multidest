@@ -20,7 +20,7 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
 //   $scope.open = function($event) {
 //     $event.preventDefault();
 //     $event.stopPropagation();
-// 
+//
 //     $scope.opened = true;
 //   };
 //
@@ -36,6 +36,8 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
   //first load map and bind markers to scope for selection
   L.mapbox.accessToken = 'pk.eyJ1IjoiYW5uaWVtY2JsZWUiLCJhIjoiV1VYZ09NRSJ9.STqM6FSiQ4WKq_I-hJS1QQ';
 
+  var latlngList = [];
+
   var map = L.mapbox.map('map')
     .setView([40.50, -100.38], 5)
     .addLayer(L.mapbox.tileLayer('mapbox.streets'));
@@ -50,9 +52,14 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
 
       marker.on('click', function(e) {
         $scope.selectedAirport = e.target.options.title;
+        $scope.latlng = e.latlng;
+        latlngList.push($scope.latlng)
+        console.log(latlngList)
         itinerary.push($scope.selectedAirport);
         console.log(itinerary);
-        calculateLegTotal(itinerary[0 + counter], itinerary[1 + counter]);
+        calculateLegTotal(itinerary[0 + counter], itinerary[1 + counter])
+        //need a promise set up for calculateLegTotal
+        drawRoute(latlngList[0 + counter],latlngList[1 + counter]);
       });
     }
   };
@@ -93,5 +100,15 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
       });
     }
   };
+
+  var drawRoute = function(depLatLng, arrLatLng) {
+    if (arrLatLng === undefined) {
+      return;
+    }
+    else {
+      var polyline = L.polyline([depLatLng, arrLatLng], {color: 'yellow'}).addTo(map);
+    }
+  };
+
 
 }]);
