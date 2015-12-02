@@ -100,5 +100,10 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
       var polyline = L.polyline([depLatLng, arrLatLng], {color: 'blue'}).addTo(map);
     }
   };
-
+  // Tried adding a multidest search since we don't have this API in the list. I was having difficulty so I hard coded one in at index.html
+  // var searchFlights = function() {
+  //   var windowObjectReference;
+  //   var strWindowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";
+  //     windowObjectReference = window.open("https://www.expedia.com/", "CNN_WindowName", strWindowFeatures);
+  // };
 }]);
