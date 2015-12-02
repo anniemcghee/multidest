@@ -1,8 +1,6 @@
 multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal', function ($scope, $http, $compile, $uibModal) {
   console.log("Itinerary controller loading");
 
-// onclick="window.open('http://www.expedia.com//Flights-Search?trip=multi&leg1=from:Seattle,%20WA,%20United%20States%20(SEA-Seattle%20-%20Tacoma%20Intl.),to:SFO,departure:12/15/2015TANYT&leg2=from:SFO,to:Los%20Angeles,%20CA%20(LAX-Los%20Angeles%20Intl.),departure:12/22/2015TANYT&leg3=from:Los%20Angeles,%20CA%20(LAX-Los%20Angeles%20Intl.),to:San%20Diego,%20CA%20(SAN-All%20Airports),departure:12/29/2015TANYT&passengers=children:0,adults:1,seniors:0,infantinlap:Y&mode=search','Multi-Destination Trip Planning')"
-
 //   //first load datepicker modal and collect userDate
 //   $scope.today = function() {
 //     $scope.dt = new Date();
@@ -94,7 +92,6 @@ var legCounter,
     $scope.tripTotal = tripTotal;
   }
 
-
   var zipArrays = function(array1, array2) {
     var itinerary = array1.map(function(e, i){
       return [array1[i], array2[i]];
@@ -131,4 +128,5 @@ var legCounter,
       drawCounter++;
     }
   };
+
 }]);
