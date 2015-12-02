@@ -1,39 +1,6 @@
 multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal', function ($scope, $http, $compile, $uibModal) {
   console.log("Itinerary controller loading");
 
-//   //first load datepicker modal and collect userDate
-//   $scope.today = function() {
-//     $scope.dt = new Date();
-//   };
-//
-//   $scope.today();
-//
-//   $scope.clear = function () {
-//     $scope.dt = null;
-//   };
-//
-//   $scope.toggleMin = function() {
-//     $scope.minDate = $scope.minDate ? null : new Date();
-//   };
-//   $scope.toggleMin();
-//
-//   $scope.open = function($event) {
-//     $event.preventDefault();
-//     $event.stopPropagation();
-//
-//     $scope.opened = true;
-//   };
-//
-//   $scope.dateOptions = {
-//     formatYear: 'yy',
-//     startingDay: 1
-//   };
-//
-//   $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-//   $scope.format = $scope.formats[0];
-// //END OF DATE PICKER
-
-
 //variables
 var legCounter,
     drawCounter,
@@ -45,7 +12,6 @@ var legCounter,
   $scope.legTotals = [];
   $scope.stops = [];
   $scope.tripTotal = 0;
-  // $scope.counterArray = new Array($scope.stops.length);
   legCounter = 0;
   drawCounter = 0;
   itinerary = [];
@@ -62,7 +28,7 @@ var legCounter,
 
   var loadMarkers = function (airport) {
     for (var i = 0; i < airport.length; i++) {
-      var html = '<h4 id=' + airport[i].airportCode + '>You Added ' + airport[i].city + ' to Your Trip!</h4><h4>' + airport[i].name + '</h4><h6>Things to do in ' + airport[i].city + ':</h6><i id="marker" class="fa fa-anchor"></i><i id="marker" class="fa fa-car"></i><i id="marker" class="fa fa-rocket"></i><br>'
+      var html = '<h4 id=' + airport[i].airportCode + '>You Added ' + airport[i].city + '!</h4><h4>' + airport[i].name + '</h4><h6>Things to do:</h6><i id="marker" class="fa fa-anchor"></i><i id="marker" class="fa fa-car"></i><i id="marker" class="fa fa-rocket"></i><br>'
       var marker = L.marker([airport[i].lat, airport[i].long], {title: airport[i].airportCode}).addTo(map).bindPopup(html);
 
       marker.on('click', function(e) {
