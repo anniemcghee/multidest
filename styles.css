@@ -18,3 +18,11 @@ body {
     right: 5px; /*newly added*/
     top: 5px;/*newly added*/
 }
+
+#marker.fa {
+  float: right;
+  z-index: 2;
+  position: inline-block;
+  padding: 5px;
+  color: blue;
+}

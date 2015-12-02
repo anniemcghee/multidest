@@ -59,7 +59,7 @@ var legCounter,
 
   var loadMarkers = function (airport) {
     for (var i = 0; i < airport.length; i++) {
-      var html = '<button class="btn btn-warning" id="' + airport[i].airportCode + '" ng-click="selectedAirport(' + airport[i].airportCode + ')">Add to Trip</button>'
+      var html = '<h3 id=' + airport[i].airportCode + '>You Added ' + airport[i].city + ' to Your Trip!</h3><h4>' + airport[i].name + ':</h4><br><i id="marker" class="fa fa-anchor"></i><i id="marker" class="fa fa-car"></i><i id="marker" class="fa fa-rocket"></i><br>'
       var marker = L.marker([airport[i].lat, airport[i].long], {title: airport[i].airportCode}).addTo(map).bindPopup(html);
 
       marker.on('click', function(e) {
