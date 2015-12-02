@@ -29,7 +29,7 @@
 <div ng-controller="Itinerary">
 
 	<div id="itinerary">
-		<button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Itinerary</button>
+		<button type="button" class="btn btn-md btn-default" ng-click="isCollapsed = !isCollapsed">My Trip</button>
 		<div uib-collapse="!isCollapsed">
 			<div class="well well-lg">
 				<table class="table">
@@ -44,31 +44,14 @@
           </tr>
 					<tr>
 						<td><h3>${{ tripTotal }}*</h3></td>
-						<td><button class="btn btn-lg btn-success"><a href=www.expedia.com/Flight-SearchResults?inpFlightRouteType=3&inpDepartureLocationCodes=' + stops[0] + '&inpDepartureLocations='+ stops[0] + '&inpDepartureLocationCodes='+ stops[1] +'&inpDepartureLocations=' + stops[1] + '&inpDepartureLocationCodes='+ stops[2] +'&inpDepartureLocations='+ stops[2] +'&inpArrivalLocationCodes='+ stops[1] +
-				     '&inpArrivalLocations=' + stops[1] + '&inpArrivalLocationCodes=' + stops[2] + '&inpArrivalLocations=' + stops[2] + '&inpArrivalLocationCodes='+ stops[3] +'&inpArrivalLocations='+ stops[3] +'&inpDepartureDates=1%2F16%2F2016&inpDepartureDates=1%2F18%2F2016&inpDepartureDates=1%2F19%2F2016&inpDepartureTimes=362&inpDepartureTimes=362&inpDepartureTimes=362&inpAdultCounts=1&inpSeniorCounts=0&inpChildCounts=0&inpInfants=2&inpFlightAirlinePreference=&inpFlightClass=3&inpOmnitureReferralId=FLT.SR.Refine.Destination%2CFLT.SR.Refine.Origin2%2CFLT.SR.Refine.Destination2%2CFLT.SR.Refine.Origin3%2CFLT.SR.Refine.Destination3&action=FlightSearchResults%40searchFlights&inttkn=eDTC0s5A0MLzF5zu>Let's Go!</a></button></td>
+						<td><a href='https://www.expedia.com/Flights?v=b' target="_blank"><button class="btn btn-lg btn-success">Go!</button></a></td>
 					</tr>
 					<tr>
 						<td><h7>*Fare estimate based on recent flight searches</h7></td>
-						<td><button class="btn btn-sm btn-danger" ng-click="clear()">Clear Trip</button></td>
+						<td><a href="#" onclick="window.location.reload(true);"><button class="btn btn-sm btn-danger">Clear Trip</button></a></td>
 					</tr>
         </tbody>
       </table>
-				<!-- <div class="row">
-					<div ng-repeat="stop in stops" class="col-sm-8">
-						<h5>{{ stop }}</h5>
-					</div>
-					<div ng-repeat="legTotal in legTotals track by $index" class="leg-total col-sm-4">
-						<h5>{{ legTotal }}</h5>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-6">
-						<button class="btn btn-success">Search Flights</button>
-					</div>
-					<div class="col-sm-6">
-						<h5>{{ tripTotal }}</h5>
-					</div>
-				</div> -->
 			</div>
 		</div>
 	</div>
