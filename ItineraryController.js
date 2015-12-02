@@ -35,10 +35,12 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
 //   $scope.format = $scope.formats[0];
 // //END OF DATE PICKER
 
-  //variables
-  var legCounter,
-      drawCounter,
-      latlngList;
+
+//variables
+var legCounter,
+    drawCounter,
+    itinerary,
+    latlngList;
 
   $scope.isCollapsed = false;
   $scope.userDate = '2016-01-16';
@@ -48,6 +50,7 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
   // $scope.counterArray = new Array($scope.stops.length);
   legCounter = 0;
   drawCounter = 0;
+  itinerary = [];
 
   //first load map and bind markers to scope for selection
   L.mapbox.accessToken = 'pk.eyJ1IjoiYW5uaWVtY2JsZWUiLCJhIjoiV1VYZ09NRSJ9.STqM6FSiQ4WKq_I-hJS1QQ';
@@ -128,10 +131,4 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
       drawCounter++;
     }
   };
-  // Tried adding a multidest search since we don't have this API in the list. I was having difficulty so I hard coded one in at index.html
-  // var searchFlights = function() {
-  //   var windowObjectReference;
-  //   var strWindowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";
-  //     windowObjectReference = window.open("https://www.expedia.com/", "CNN_WindowName", strWindowFeatures);
-  // };
 }]);
