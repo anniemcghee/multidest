@@ -1,0 +1,24 @@
+<div class="modal-header modal fade in" id="date-modal">
+	  <h3 class="modal-title row text-center">Travel Date</h3>
+	</div>
+	<div class="modal-body">
+	  <div class="row">
+	    <form ng-submit="datePick()">
+
+	    <div class="row text-center">
+
+	          <h4><label>When are you kicking off your travels?</label>
+
+	          <pre ng-show="userDate"><em>{{ userDate | date:'fullDate' }}</em></pre></h4>
+
+	              <p class="input-group" class="form-control" datepicker-popup="{{format}}" ng-model="wedding" is-open="opened" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" show-button-bar="false" show-weeks="false" ng-required="true" close-text="Close" />
+	                <span class="input-group-btn">
+	                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+	                </span>
+	              </p>
+
+	          <input type="submit" value="Signup" class="btn btn-primary">
+	        </form>
+	      </div>
+	  </div>
+	</div>
