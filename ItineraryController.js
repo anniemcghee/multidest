@@ -1,6 +1,8 @@
 multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal', function ($scope, $http, $compile, $uibModal) {
   console.log("itinerary controller loading");
 
+// onclick="window.open('http://www.expedia.com//Flights-Search?trip=multi&leg1=from:Seattle,%20WA,%20United%20States%20(SEA-Seattle%20-%20Tacoma%20Intl.),to:SFO,departure:12/15/2015TANYT&leg2=from:SFO,to:Los%20Angeles,%20CA%20(LAX-Los%20Angeles%20Intl.),departure:12/22/2015TANYT&leg3=from:Los%20Angeles,%20CA%20(LAX-Los%20Angeles%20Intl.),to:San%20Diego,%20CA%20(SAN-All%20Airports),departure:12/29/2015TANYT&passengers=children:0,adults:1,seniors:0,infantinlap:Y&mode=search','Multi-Destination Trip Planning')"
+
 //   //first load datepicker modal and collect userDate
 //   $scope.today = function() {
 //     $scope.dt = new Date();
@@ -33,10 +35,22 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
 //   $scope.format = $scope.formats[0];
 // //END OF DATE PICKER
 
+  //variables
+  var legCounter,
+      drawCounter,
+      itinerary,
+      latlngList;
+
+  $scope.isCollapsed = false;
+  $scope.userDate = '2016-01-16';
+  $scope.legTotals = [];
+  legCounter = 0;
+  drawCounter = 0;
+  itinerary = [];
   //first load map and bind markers to scope for selection
   L.mapbox.accessToken = 'pk.eyJ1IjoiYW5uaWVtY2JsZWUiLCJhIjoiV1VYZ09NRSJ9.STqM6FSiQ4WKq_I-hJS1QQ';
 
-  var latlngList = [];
+  latlngList = [];
 
   var map = L.mapbox.map('map')
     .setView([40.50, -100.38], 5)
@@ -50,29 +64,21 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
       marker.on('click', function(e) {
         $scope.selectedAirport = e.target.options.title;
         $scope.latlng = e.latlng;
-        if(itinerary[0 + counter] === $scope.selectedAirport){
+        if(itinerary[0 + legCounter] === $scope.selectedAirport){
         alert("pick another airport!");
         } else {
           itinerary.push($scope.selectedAirport);
+          console.log("ITIN: ", itinerary);
           latlngList.push($scope.latlng)
-          calculateLegTotal(itinerary[0 + counter], itinerary[1 + counter])
-          drawRoute(latlngList[0 + counter],latlngList[1 + counter]);
+          console.log("latlngList: ", latlngList);
+          calculateLegTotal(itinerary[0 + legCounter], itinerary[1 + legCounter]);
+          drawRoute(latlngList[0 + drawCounter],latlngList[1 + drawCounter]);
         }
       });
     }
   };
 
   loadMarkers(airports);
-
-  //then itinerary logic and route creation
-  var legTotal;
-  var counter = 0;
-  $scope.isCollapsed = false;
-  $scope.userDate = '2016-01-16';
-  var itinerary = [];
-  $scope.legTotals = [];
-
-  // $scope.legTotal = legTotal;
 
   var calculateLegTotal = function(dep, arr) {
     if (arr === undefined) {
@@ -87,17 +93,20 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
         $scope.legTotal = data.offers[0].totalFare;
         $scope.legTotals.push($scope.legTotal);
         console.log($scope.legTotals);
-        counter++;
+        legCounter++;
       });
     }
   };
 
   var drawRoute = function(depLatLng, arrLatLng) {
     if (arrLatLng === undefined) {
+      console.log("ERROR in draw route");
       return;
     }
     else {
+      console.log("drawing route: ", depLatLng, arrLatLng);
       var polyline = L.polyline([depLatLng, arrLatLng], {color: 'blue'}).addTo(map);
+      drawCounter++;
     }
   };
   // Tried adding a multidest search since we don't have this API in the list. I was having difficulty so I hard coded one in at index.html
