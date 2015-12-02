@@ -2,14 +2,12 @@ body {
   margin:0;
   padding:0;
 }
-
 #map {
   position: absolute;
   top: 4em;
   bottom: 0;
   width:100%;
 }
-
 #itinerary {
     /*display: block;*/
     float: right;
@@ -18,7 +16,6 @@ body {
     right: 5px; /*newly added*/
     top: 5px;/*newly added*/
 }
-
 #marker.fa {
   float: right;
   z-index: 2;
@@ -31,4 +28,12 @@ h6 {
   float: left;
   z-index:2px;
   position: relative;
+h3 {
+  font-weight: bold;
+  color: green;
+}
+
+h7 {
+  font-weight: lighter;
+  color: green;
 }

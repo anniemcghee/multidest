@@ -1,5 +1,5 @@
 multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal', function ($scope, $http, $compile, $uibModal) {
-  console.log("itinerary controller loading");
+  console.log("Itinerary controller loading");
 
 // onclick="window.open('http://www.expedia.com//Flights-Search?trip=multi&leg1=from:Seattle,%20WA,%20United%20States%20(SEA-Seattle%20-%20Tacoma%20Intl.),to:SFO,departure:12/15/2015TANYT&leg2=from:SFO,to:Los%20Angeles,%20CA%20(LAX-Los%20Angeles%20Intl.),departure:12/22/2015TANYT&leg3=from:Los%20Angeles,%20CA%20(LAX-Los%20Angeles%20Intl.),to:San%20Diego,%20CA%20(SAN-All%20Airports),departure:12/29/2015TANYT&passengers=children:0,adults:1,seniors:0,infantinlap:Y&mode=search','Multi-Destination Trip Planning')"
 
@@ -35,6 +35,7 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
 //   $scope.format = $scope.formats[0];
 // //END OF DATE PICKER
 
+
 //variables
 var legCounter,
     drawCounter,
@@ -44,6 +45,9 @@ var legCounter,
   $scope.isCollapsed = false;
   $scope.userDate = '2016-01-16';
   $scope.legTotals = [];
+  $scope.stops = [];
+  $scope.tripTotal = 0;
+  // $scope.counterArray = new Array($scope.stops.length);
   legCounter = 0;
   drawCounter = 0;
   itinerary = [];
@@ -66,15 +70,16 @@ var legCounter,
       marker.on('click', function(e) {
         $scope.selectedAirport = e.target.options.title;
         $scope.latlng = e.latlng;
-        if(itinerary[0 + legCounter] === $scope.selectedAirport){
+        if($scope.stops[0 + legCounter] === $scope.selectedAirport){
         alert("pick another airport!");
         } else {
-          itinerary.push($scope.selectedAirport);
-          console.log("ITIN: ", itinerary);
+          $scope.stops.push($scope.selectedAirport);
+          console.log("ITIN: ", $scope.stops);
           latlngList.push($scope.latlng)
           console.log("latlngList: ", latlngList);
-          calculateLegTotal(itinerary[0 + legCounter], itinerary[1 + legCounter]);
+          calculateLegTotal($scope.stops[0 + legCounter], $scope.stops[1 + legCounter]);
           drawRoute(latlngList[0 + drawCounter],latlngList[1 + drawCounter]);
+
         }
       });
     }
@@ -82,10 +87,25 @@ var legCounter,
 
   loadMarkers(airports);
 
+  var getTripTotal = function(arr) {
+    var tripTotal = 0;
+    for (var i = 1; i < arr.length; i++) {
+       tripTotal += parseInt(arr[i]);
+    }
+    $scope.tripTotal = tripTotal;
+  }
+
+
+  var zipArrays = function(array1, array2) {
+    var itinerary = array1.map(function(e, i){
+      return [array1[i], array2[i]];
+    })
+    console.log(itinerary);
+  }
+
   var calculateLegTotal = function(dep, arr) {
     if (arr === undefined) {
-      $scope.legTotal = '---';
-      $scope.legTotals.push($scope.legTotal);
+      $scope.legTotals.push('---');
       console.log($scope.legTotals);
     } else {
       var req = {
@@ -96,6 +116,7 @@ var legCounter,
         $scope.legTotals.push($scope.legTotal);
         console.log($scope.legTotals);
         legCounter++;
+        getTripTotal($scope.legTotals);
       });
     }
   };
