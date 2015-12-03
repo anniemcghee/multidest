@@ -1,11 +1,10 @@
 multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal', function ($scope, $http, $compile, $uibModal) {
   console.log("Itinerary controller loading");
 
-//variables
-var legCounter,
-    drawCounter,
-    itinerary,
-    latlngList;
+  var legCounter,
+      drawCounter,
+      itinerary,
+      latlngList;
 
   $scope.isCollapsed = false;
   $scope.userDate = '2016-01-16';
@@ -16,7 +15,6 @@ var legCounter,
   drawCounter = 0;
   itinerary = [];
 
-  //first load map and bind markers to scope for selection
   L.mapbox.accessToken = 'pk.eyJ1IjoiYW5uaWVtY2JsZWUiLCJhIjoiV1VYZ09NRSJ9.STqM6FSiQ4WKq_I-hJS1QQ';
 
   latlngList = [];
@@ -38,12 +36,9 @@ var legCounter,
         alert("pick another airport!");
         } else {
           $scope.stops.push($scope.selectedAirport);
-          console.log("ITIN: ", $scope.stops);
           latlngList.push($scope.latlng)
-          console.log("latlngList: ", latlngList);
           calculateLegTotal($scope.stops[0 + legCounter], $scope.stops[1 + legCounter]);
           drawRoute(latlngList[0 + drawCounter],latlngList[1 + drawCounter]);
-
         }
       });
     }
@@ -77,7 +72,6 @@ var legCounter,
       $http(req).success(function(data) {
         $scope.legTotal = data.offers[0].totalFare;
         $scope.legTotals.push($scope.legTotal);
-        console.log($scope.legTotals);
         legCounter++;
         getTripTotal($scope.legTotals);
       });
@@ -86,7 +80,6 @@ var legCounter,
 
   var drawRoute = function(depLatLng, arrLatLng) {
     if (arrLatLng === undefined) {
-      console.log("ERROR in draw route");
       return;
     }
     else {

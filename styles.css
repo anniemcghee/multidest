@@ -9,12 +9,11 @@ body {
   width:100%;
 }
 #itinerary {
-    /*display: block;*/
     float: right;
     z-index: 3;
-    position: relative; /*newly added*/
-    right: 5px; /*newly added*/
-    top: 5px;/*newly added*/
+    position: relative;
+    right: 5px;
+    top: 5px;
 }
 #marker.fa {
   float: right;
