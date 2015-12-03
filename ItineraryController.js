@@ -15,7 +15,6 @@ multidestApp.controller('Itinerary', ['$scope', '$http', '$compile', '$uibModal'
   drawCounter = 0;
   itinerary = [];
 
-  //first load map and bind markers to scope for selection
   L.mapbox.accessToken = 'pk.eyJ1IjoiYW5uaWVtY2JsZWUiLCJhIjoiV1VYZ09NRSJ9.STqM6FSiQ4WKq_I-hJS1QQ';
 
   latlngList = [];
